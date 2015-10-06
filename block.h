@@ -15,9 +15,6 @@
 
     #include    "debug.h"
 
-    #define     TRUE    1
-    #define     FALSE   0
-
     /**
      * for our purposes a block will contain its tag and a value determining if
      * it's been written to or not

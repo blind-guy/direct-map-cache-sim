@@ -21,7 +21,7 @@ struct block *init_block()
 	}
 
 	memset(temp, 0, sizeof(struct block));
-	temp->iswritten = FALSE;
+	temp->iswritten = 0;
 
 	return(temp);
 }

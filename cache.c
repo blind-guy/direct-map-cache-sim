@@ -69,7 +69,7 @@ void clean_cache(struct cache *mycache)
 	current = mycache->blocks;
 	int i;
 	for(i = 0; i < mycache->blockcount; i++){
-		current->iswritten = FALSE;
+		current->iswritten = 0;
 		current++;
     }
 }
@@ -131,18 +131,18 @@ int cache_lookup
 			#ifdef  DEBUG
                 fprintf(stderr,"TAG MATCH\n");
 			#endif
-			return TRUE;
+			return 0;
 		} else {
             #ifdef  DEBUG
                 fprintf(stderr, "TAG MISMATCH\n");
             #endif
-			return FALSE;
+			return 1;
 		}
 	}
 
 	// the block we found was not written so hold gets no values and we
 	// return one
-	return FALSE;
+	return 1;
 }
 
 /**
@@ -150,7 +150,7 @@ int cache_lookup
  * index that is we simply replace whatever tag is currently storred in the
  * block
  *
- * returns TRUE if we could write to cache or FALSE if it fails
+ * returns 0 if we could write to cache or non-zero if it fails
  *
  * PARAMETERS: struct cache*, struct address*
  */
@@ -165,15 +165,15 @@ int write_to_cache(struct cache *mycache, struct address *myaddress)
 	if (mycache == NULL){
 		fprintf(stderr, "ERROR: passed NULL cache struct to ");
 		fprintf(stderr, "write_to_cache()t\n");
-		return FALSE;
+		return 1;
 	} else if (myaddress == NULL){
 		fprintf(stderr, "ERROR: passed NULL address struct to ");
 		fprintf(stderr, "write_to_cache()\n");
-		return FALSE;
+		return 1;
 	} else if (myaddress->index > mycache->blockcount){
 		fprintf(stderr, "ERROR: address struct index excededs cache ");
 		fprintf(stderr, "blockcount\n");
-		return FALSE;
+		return 1;
 	}
 
 	#ifdef  DEBUG
@@ -184,8 +184,8 @@ int write_to_cache(struct cache *mycache, struct address *myaddress)
 	struct block *temp;
 	temp = mycache->blocks + myaddress->index;
 	temp->tag = myaddress->tag;
-	temp->iswritten = TRUE;
+	temp->iswritten = 1;
 
-	return TRUE;
+	return 0;
 }
 	

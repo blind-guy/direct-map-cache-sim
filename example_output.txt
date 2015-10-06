@@ -13,8 +13,8 @@
     300ad        3        2         3      hit    5      7       12  0.58333331
     10055        1        1         1      hit    6      7       13  0.53846157
     40456        4       11         3     miss    6      8       14  0.57142860
-elijah
-16 6 on datasmall.txt 
+blind-guy
+16 6 on example_datasmall.txt 
 memory accesses: 14
 hits: 6
 misses: 8

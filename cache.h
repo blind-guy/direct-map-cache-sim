@@ -13,9 +13,6 @@
     #include    "address.h"
 	#include    "debug.h"
 
-    #define     TRUE    1
-    #define     FALSE   0
-
     /**
      * at its most basic a cache is simply a set of memory blocks where the cache
      * size, block size, block count are set
@@ -38,5 +35,4 @@
     int cache_lookup(struct cache*, struct block*, struct address*);
     void clean_cache(struct cache*);
     int write_to_cache(struct cache*, struct address*);
-
 #endif

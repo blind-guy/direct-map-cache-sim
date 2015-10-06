@@ -1,5 +1,5 @@
 CC=gcc
-DEPS = debug.h cache.h block.h address.h
+DEPS = driver.h debug.h cache.h block.h address.h
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
