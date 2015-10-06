@@ -14,7 +14,7 @@ If the trace flag is "off" output includes on each line and in this order:
 -the miss ratio  
 
 If the trace flag is set to "on" a heading containing the following line is printed:
->  address      tag    block cache tag hit/miss hits misses accesses  miss ratio
+>  address      tag    block cache tag hit/miss hits misses accesses  miss ratio  
 This is followed by a line of text for every processed address containing the above information for that address. The address, tag, block and cache tag fields are all printed in hex without the leading 0x.
 
 For our purposes we are assuming a direct cache meaning our model assumes a cache is made of blocks. where each block index maps to exactly one location in the cache. This contrasts with an n-associative cache where a block index maps to a set in cache containing n blocks each. Every address line in the file simply referes to a memory access and does not specifiy a read or write nor is this needed for our approach as both are assumed to result in a hit if the data is present and a miss if it is not.
